@@ -1,6 +1,6 @@
 {
   "name": "bhojpurilang",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Bhojpuri-style programming language built on top of JavaScript",
   "author": "Your Name",
   "license": "MIT",
