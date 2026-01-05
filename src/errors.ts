@@ -1,6 +1,8 @@
 export type ErrorCategory =
   | "syntax"
   | "reference"
+  | "assignment"
+  | "logic"
   | "runtime"
   | "generic";
 
@@ -13,10 +15,20 @@ const GAALI_MAP: Record<ErrorCategory, readonly string[]> = {
   ],
 
   reference: [
-    "Variable bina banaye use kar diye ho ka?",
+    "Variable bina rakho / pakka kiye use kar diye ho ka?",
     "Naam likhne me hi gadbad kar diye re!",
     "Reference hawa me likh diye ho lagta!",
-    "Pehle variable bana, phir use kar!"
+    "Pehle rakho ya pakka se variable banao!"
+  ],
+
+  assignment: [
+    "Pakka variable me value badalne ka kosis kar rahe ho!",
+    "Jo pakka hai, oo pakka hi rahega bhai!"
+  ],
+
+  logic: [
+    "Logic idhar-udhar bhaag gail ba!",
+    "Agar-nahi_to ke beech me kuch gadbad ba!"
   ],
 
   runtime: [
@@ -43,14 +55,19 @@ export function getBhojpuriGaali(category: ErrorCategory): string {
 }
 
 export function detectCategory(err: Error): ErrorCategory {
-  switch (err.name) {
-    case "SyntaxError":
-      return "syntax";
-    case "ReferenceError":
-      return "reference";
-    case "TypeError":
-      return "runtime";
-    default:
-      return "generic";
+  if (err.name === "SyntaxError") return "syntax";
+  if (err.name === "ReferenceError") return "reference";
+
+  // const reassignment
+  if (
+    err.name === "TypeError" &&
+    err.message.includes("constant")
+  ) {
+    return "assignment";
   }
+
+  if (err.name === "TypeError") return "logic";
+  if (err.name === "RangeError") return "runtime";
+
+  return "generic";
 }

@@ -12,7 +12,6 @@ export type RunOptions = {
 function extractLineNumber(stack?: string): number | null {
   if (!stack) return null;
 
-  // Supports most JS engines (Node / Browser)
   const match =
     stack.match(/<anonymous>:(\d+):\d+/) ||
     stack.match(/eval:(\d+):\d+/);
@@ -25,6 +24,8 @@ export function run(
   consoleProxy: Console = console,
   options: RunOptions = {}
 ): void {
+  const { debug = false } = options;
+
   try {
     const jsCode = translate(code);
 
@@ -35,16 +36,16 @@ export function run(
 
     runner(consoleProxy);
   } catch (err) {
-    const error = err instanceof Error
-      ? err
-      : new Error("Unknown error");
+    const error =
+      err instanceof Error ? err : new Error("Unknown error");
 
-    const category: ErrorCategory = detectCategory(error);
+    const category: ErrorCategory =
+      detectCategory(error) ?? "generic";
+
     const gaali = getBhojpuriGaali(category);
     const line = extractLineNumber(error.stack);
 
-    // 🔥 USER MODE (DEFAULT)
-    if (!options.debug) {
+    if (!debug) {
       let message = `🔥 Bhojpuri Error:\n${gaali}`;
       if (line !== null) {
         message += `\n👉 Line: ${line}`;
@@ -52,16 +53,7 @@ export function run(
       throw new Error(message);
     }
 
-    // 🧠 DEBUG MODE (DEV / MAINTAINER)
-    let debugMessage =
-      `JS Error:\n${error.name}: ${error.message}`;
-
-    if (line !== null) {
-      debugMessage += `\nLine: ${line}`;
-    }
-
-    debugMessage += `\n\nBhojpuri Gali:\n${gaali}`;
-
-    throw new Error(debugMessage);
+    // debug mode
+    throw error;
   }
 }

@@ -2,7 +2,7 @@
   "name": "bhojpurilang",
   "version": "1.0.2",
   "description": "A Bhojpuri-style programming language built on top of JavaScript",
-  "author": "Your Name",
+  "author": "Aksh raj",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.cjs",
