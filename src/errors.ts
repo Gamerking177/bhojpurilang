@@ -8,41 +8,42 @@ export type ErrorCategory =
 
 const GAALI_MAP: Record<ErrorCategory, readonly string[]> = {
   syntax: [
-    "Ka re coder, syntax ke saath jhagda kyun?",
-    "Bracket kahin chhut gail ba, line dobara dekh!",
-    "Syntax itna bigad kaise gail re?",
-    "E line pe grammar bilkul dhila ba!"
+    "Arey re bhai, syntax ulta-pulta ho gail ba!",
+    "Bracket ya quote kahin chhut gail ba, dhyaan se dekh.",
+    "Ee line pe boli aur likhaai mel nahi khaata.",
+    "Syntax bigad gail ba, phir se sambhaar ke likh."
   ],
 
   reference: [
-    "Variable bina rakho / pakka kiye use kar diye ho ka?",
-    "Naam likhne me hi gadbad kar diye re!",
-    "Reference hawa me likh diye ho lagta!",
-    "Pehle rakho ya pakka se variable banao!"
+    "Ee variable ta hawa me latkal lagta ba!",
+    "Naam likhe me gadbad ho gail ba re.",
+    "Pehle variable dhar, tab jaa ke use kar.",
+    "Reference bina aadhaar ke chal raha ba."
   ],
 
   assignment: [
-    "Pakka variable me value badalne ka kosis kar rahe ho!",
-    "Jo pakka hai, oo pakka hi rahega bhai!"
+    "Jo cheez thos ba, oo badle ke kosis karat ba ka?",
+    "Thos bana ke phir badalne ka matlab na ba bhai!"
   ],
 
   logic: [
-    "Logic idhar-udhar bhaag gail ba!",
-    "Agar-nahi_to ke beech me kuch gadbad ba!"
+    "Logic idhar-udhar bhatak gail ba!",
+    "Jadi–nahi_ta ke beech me jhol ba re.",
+    "Soch aur likhaai me mel baith nahi raha."
   ],
 
   runtime: [
-    "Logic chalte-chalte gir gail ba!",
-    "Code bhaagte-bhaagte thak gail!",
-    "Runtime pe hi dimaag phisal gail!",
-    "Execution ke time pe scene bigad gail!"
+    "Code chalte-chalte gir gail ba!",
+    "Execution ke time pe khel bigad gail.",
+    "Runtime pe hi dimaag phisal gail ba!",
+    "Code bhaagte-bhaagte atak gail."
   ],
 
   generic: [
-    "Arre bhai, code ka dimaag ghoom gail ba!",
-    "JavaScript bhi confuse ho gail ba!",
-    "Soch ke likho re, machine bhi insaan ba!",
-    "E code toh patli gali me phas gail ba!"
+    "Code ka dimaag poora ghoom gail ba!",
+    "Machine bhi soche la: ee ka ho gail?",
+    "Ee code patli gali me phas gail ba.",
+    "Kuch ta gadbad ba bhai, dhyaan se dekh."
   ]
 };
 
@@ -58,7 +59,7 @@ export function detectCategory(err: Error): ErrorCategory {
   if (err.name === "SyntaxError") return "syntax";
   if (err.name === "ReferenceError") return "reference";
 
-  // const reassignment
+  // thos (const) reassignment
   if (
     err.name === "TypeError" &&
     err.message.includes("constant")

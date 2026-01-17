@@ -31,36 +31,38 @@ npm install bhojpurilang
 import { run } from "bhojpurilang";
 
 run(`
-rakho x = 10
-pakka y = 5
+dhar umar = 20
 
-agar (x > y) {
-  bolo("x bada ba")
-} nahi_to {
-  bolo("y bada ba")
+jadi (umar > 18) {
+  bol "Vote de sakat ba"
+} nahi_ta {
+  bol "Abhi ruk ja"
 }
+
 `);
 ```
 
 ## 🔤 Supported Bhojpuri Keywords
 
-| Bhojpuri  | JavaScript    |
-| --------- | ------------- |
-| `rakho`   | `let`         |
-| `pakka`   | `const`       |
-| `bolo`    | `console.log` |
-| `agar`    | `if`          |
-| `nahi_to` | `else`        |
-| `jab_tak` | `while`       |
-| `har_ek`  | `for`         |
-| `kaam`    | `function`    |
-| `wapas`   | `return`      |
-| `sahi`    | `true`        |
-| `galat`   | `false`       |
-| `khaali`  | `null`        |
+| Bhojpuri Keyword | JavaScript    |
+| ---------------- | ------------- |
+| `dhar`           | `let`         |
+| `thos`           | `const`       |
+| `bol`            | `console.log` |
+| `jadi`           | `if`          |
+| `nahi_ta`        | `else`        |
+| `jab_le`         | `while`       |
+| `har`            | `for`         |
+| `kaj`            | `function`    |
+| `laut`           | `return`      |
+| `theek`          | `true`        |
+| `na`             | `false`       |
+| `khali`          | `null`        |
 
 
-> Keywords are case-sensitive and designed to feel natural for Bhojpuri / Hindi speakers.
+> BhojpuriLang now operates in Pure Bhojpuri Mode,
+> meaning only native Bhojpuri keywords are supported.
+> This ensures a clear identity and authentic Bhojpuri syntax.
 
 ## ❌ Error Handling (Bhojpuri Style)
 BhojpuriLang hides raw JavaScript errors and shows clean Bhojpuri-style error messages instead.

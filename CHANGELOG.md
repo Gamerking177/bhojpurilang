@@ -4,6 +4,49 @@ All notable changes to **BhojpuriLang** will be documented in this file.
 
 ---
 
+## [1.3.0] - 2026-01-18
+
+### 🚀 Added
+- **Pure Bhojpuri keywords introduced (Pure Bhojpuri Mode):**
+  - `dhar` → `let`
+  - `thos` → `const`
+  - `bol` → `console.log`
+  - `jadi` → `if`
+  - `nahi_ta` → `else`
+  - `jab_le` → `while`
+  - `har` → `for`
+  - `kaj` → `function`
+  - `laut` → `return`
+  - `theek` → `true`
+  - `na` → `false`
+  - `khali` → `null`
+
+- **Bhojpuri-aware error system**
+  - Errors now follow BhojpuriLang rules instead of raw JavaScript messages
+  - Clean, friendly Bhojpuri error messages (no abusive language)
+  - Errors categorized into `syntax`, `reference`, `assignment`, `logic`, `runtime`
+
+- **Runtime safety**
+  - Infinite loop protection with configurable timeout
+  - Safe execution for browser playground usage
+  - Optional `debug` mode for maintainers
+
+---
+
+### 🛠 Improved
+- Accurate error categorization and detection
+- Improved line number extraction from runtime stack (Node & browser)
+- Stronger Bhojpuri language identity across runtime and errors
+- Better developer experience for beginners
+
+---
+
+### ❌ Removed
+- Hindi / mixed-language keywords removed in favor of **Pure Bhojpuri Mode**
+- Raw JavaScript error exposure in user mode
+
+---
+
 ## [1.2.0] – 2026-01-03
 
 ### 🚀 Added
