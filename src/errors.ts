@@ -28,7 +28,7 @@ const GAALI_MAP: Record<ErrorCategory, readonly string[]> = {
 
   logic: [
     "Logic idhar-udhar bhatak gail ba!",
-    "Jadi–nahi_ta ke beech me jhol ba re.",
+    "Jadi – nahi_ta ke beech me jhol ba re.",
     "Soch aur likhaai me mel baith nahi raha."
   ],
 
