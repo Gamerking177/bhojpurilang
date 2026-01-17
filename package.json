@@ -1,6 +1,6 @@
 {
   "name": "bhojpurilang",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "A Bhojpuri-style programming language built on top of JavaScript",
   "author": "Aksh raj",
   "license": "MIT",
